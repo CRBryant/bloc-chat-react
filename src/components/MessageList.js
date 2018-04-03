@@ -5,9 +5,12 @@ class MessageList extends Component {
       super(props);
       this.state = {
         messages: [],
-        currentMessages: []
+        currentMessages: [],
+        newMessage: ''
       };
 
+      this.updateCurrentMessages = this.updateCurrentMessages.bind(this);
+      this.createMessage = this.createMessage.bind(this);
       this.messagesRef = this.props.firebase.database().ref('messages');
     }
 
@@ -19,33 +22,54 @@ class MessageList extends Component {
       });
     }
 
-    /*componentWillReceiveProps() {
-      const nextProps = this.props.activeRoom;
-      this.updateCurrentMessages();
-    }*/
+    createMessage(e) {
+      e.preventDefault();
+      if(this.props.activeRoom === undefined || this.props.activeUser === null) {
+        this.setState({ newMessage: '' });
+      } else {
+      this.messagesRef.push({
+        username: this.props.activeUser.displayName,
+        roomID: this.props.activeRoom.key,
+        sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
+        content: this.state.newMessage
+       });
+     }
+      this.setState({ newMessage: '' });
+    }
 
-    updateCurrentMessages(activeRoom) {
-      const currentMessage = this.state.messages
-      .filter(message => message.roomID === this.props.activeRoom.key);
-      this.setState({currentMessages: currentMessage});
+    updateCurrentMessages(e) {
+      const newMessage = e.target.value;
+      this.setState({ newMessage: newMessage });
     }
 
     render() {
       return (
-        <div className='message-list'>
-          <div>
-            <h2>{this.props.activeRoom.name}</h2>
-          </div>
-          {this.state.messages
-            .filter(message => message.roomID === this.props.activeRoom.key)
-            .map((currentMessages, index) =>
-            <div key={index} className='message'>
-              <h3>{currentMessages.username}</h3>
-              <span className='timestamp'>{currentMessages.sentAt}</span>
-              <p>{currentMessages.content}</p>
+        <div>
+          <div className='message-list'>
+            <div>
+              <h2>{this.props.activeRoom.name}</h2>
             </div>
-          )}
+            {this.state.messages
+              .filter(message => message.roomID === this.props.activeRoom.key)
+              .map((currentMessages, index) =>
+              <div key={index} className='message'>
+                <h3>{currentMessages.username}</h3>
+                <span className='timestamp'>{currentMessages.sentAt}</span>
+                <p>{currentMessages.content}</p>
+              </div>
+            )}
+          </div>
+
+          <div className='newMessages'>
+            <div>
+              <form onSubmit={this.createMessage}>
+                <input type='text' placeholder='Write your message here...' value={this.state.newMessage} onChange={this.updateCurrentMessages} />
+                <input type='submit' value='Send'/>
+              </form>
+            </div>
+          </div>
         </div>
+
       );
     }
 
