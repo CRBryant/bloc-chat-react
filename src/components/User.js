@@ -22,9 +22,9 @@ class User extends Component {
   render() {
 
     return (
-      <div className="sign-in-out">
-        <button className="sign-in" onClick={ () => this.signIn() }>Sign In</button>
-        <button className="sign-out" onClick={ () => this.signOut() }>Sign Out</button>
+      <div>
+        <button className="user-button" onClick={ () => this.signIn() }>Sign In</button>
+        <button className="user-button" onClick={ () => this.signOut() }>Sign Out</button>
         <p>Current User: {this.props.activeUser === null ? 'Guest' : this.props.activeUser.displayName}</p>
       </div>
     )
