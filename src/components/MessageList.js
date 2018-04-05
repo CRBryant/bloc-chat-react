@@ -42,6 +42,12 @@ class MessageList extends Component {
       this.setState({ newMessage: newMessage });
     }
 
+    setTime(time) {
+        const format = new Date(time);
+        const newTime = String(format);
+        return newTime;
+    }
+
     render() {
       return (
         <div>
@@ -53,16 +59,16 @@ class MessageList extends Component {
               .filter(message => message.roomID === this.props.activeRoom.key)
               .map((currentMessages, index) =>
               <div key={index} className='message'>
-                <h3>{currentMessages.username}</h3>
-                <span className='timestamp'>{currentMessages.sentAt}</span>
-                <p>{currentMessages.content}</p>
+                <h3 className='username'>{currentMessages.username}</h3>
+                <span className='sentAt'>{this.setTime(currentMessages.sentAt)}</span>
+                <p className='content'>{currentMessages.content}</p>
               </div>
             )}
           </div>
 
           <div className='newMessages'>
             <div>
-              <form onSubmit={this.createMessage}>
+              <form id='message-form' onSubmit={this.createMessage}>
                 <input type='text' placeholder='Write your message here...' value={this.state.newMessage} onChange={this.updateCurrentMessages} />
                 <input type='submit' value='Send'/>
               </form>
