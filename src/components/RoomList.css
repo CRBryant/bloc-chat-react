@@ -1,0 +1,28 @@
+#app-name {
+  margin: 0;
+  padding: 10px 0;
+}
+
+#rooms {
+  background-color: #ccc;
+  box-sizing: border-box;
+  width: 25vw;
+  height: 100vh;
+  float: left;
+  text-align: left;
+}
+
+.rooms {
+  list-style-type: none;
+  padding: 0;
+}
+
+.roomName {
+  padding: 3px;
+  font-size: 16px;
+}
+
+#newRoom {
+  min-width: 80px;
+  max-width: 80%;
+}

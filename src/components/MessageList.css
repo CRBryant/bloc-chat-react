@@ -1,0 +1,36 @@
+#message {
+  box-sizing: border-box;
+  width: 75vw;
+  height: 100vh;
+  display: inline-block;
+  float: right;
+}
+
+#message-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#username {
+  margin: 5px 0;
+  display: inline-block;
+}
+
+#content {
+  margin: 0;
+}
+
+#sentAt {
+  margin: 5px;
+  display: inline-block;
+  float: right;
+}
+
+#message-form {
+  box-sizing: border-box;
+  width: 75vw;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

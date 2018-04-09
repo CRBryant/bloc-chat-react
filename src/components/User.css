@@ -1,0 +1,12 @@
+#sign-in,
+#sign-out {
+  position: absolute;
+  top: 5px;
+  right: 60px;
+}
+
+#current-user {
+  position: absolute;
+  top: 5px;
+  margin: 0;
+}

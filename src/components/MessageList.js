@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MessageList.css';
 
 class MessageList extends Component {
     constructor(props) {
@@ -53,9 +54,9 @@ class MessageList extends Component {
               .filter(message => message.roomID === this.props.activeRoom.key)
               .map((currentMessages, index) =>
               <div key={index} className='message'>
-                <h3>{currentMessages.username}</h3>
-                <span className='timestamp'>{currentMessages.sentAt}</span>
-                <p>{currentMessages.content}</p>
+                <h3 className='username'>{currentMessages.username}</h3>
+                <span className='sentAt'>{currentMessages.sentAt}</span>
+                <p className='content'>{currentMessages.content}</p>
               </div>
             )}
           </div>

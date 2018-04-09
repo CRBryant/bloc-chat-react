@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './User.css';
 
 class User extends Component {
 
@@ -25,7 +26,7 @@ class User extends Component {
       <div className="sign-in-out">
         <button className="sign-in" onClick={ () => this.signIn() }>Sign In</button>
         <button className="sign-out" onClick={ () => this.signOut() }>Sign Out</button>
-        <p>Current User: {this.props.activeUser === null ? 'Guest' : this.props.activeUser.displayName}</p>
+        <p className="current-user">Current User: {this.props.activeUser === null ? 'Guest' : this.props.activeUser.displayName}</p>
       </div>
     )
   }
