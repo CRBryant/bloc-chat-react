@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './RoomList.css';
+import './roomList.css';
 
 class RoomList extends Component {
   constructor(props) {
@@ -33,14 +33,8 @@ class RoomList extends Component {
 
   render() {
     return (
-      <div className='rooms'>
-      <h1 id='app-name'>Bloc Chat</h1>
-        <div className='rooms-form'>
-          <form onSubmit={this.createRoom}>
-            <input type='text' id='newRoom' onChange={this.updateRoomName} />
-            <input type='submit' value='Create Room!'/>
-          </form>
-        </div>
+      <section className='rooms'>
+        <h2>{this.props.activeRoom.name || 'Choose Room'}</h2>
         <div>
           <ul className='rooms-list'>
             {this.state.rooms.map( (room, index) => {
@@ -48,7 +42,11 @@ class RoomList extends Component {
             })}
           </ul>
         </div>
-    </div>
+        <form onSubmit={this.createRoom}>
+          <input type='text' id='newRoom' onChange={this.updateRoomName} />
+          <input type='submit' value='Create Room!'/>
+        </form>
+    </section>
     );
   }
 }

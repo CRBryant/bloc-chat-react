@@ -1,12 +1,11 @@
-#sign-in,
-#sign-out {
-  position: absolute;
-  top: 5px;
-  right: 60px;
-}
-
-#current-user {
-  position: absolute;
-  top: 5px;
-  margin: 0;
+.sign-in-out {
+  display: inline-block;
+  background-color: #ccc;
+  text-align: center;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: 400;
+  height: 20vh;
+  width: 20vw;
+  float: left;
 }

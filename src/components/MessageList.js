@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './MessageList.css';
+import './messageList.css';
 
 class MessageList extends Component {
     constructor(props) {
@@ -45,11 +45,10 @@ class MessageList extends Component {
 
     render() {
       return (
-        <div>
-          <div className='message-list'>
+          <section className='messages'>
+            <h2>{this.props.activeRoom.name}</h2>
+
             <div>
-              <h2>{this.props.activeRoom.name}</h2>
-            </div>
             {this.state.messages
               .filter(message => message.roomID === this.props.activeRoom.key)
               .map((currentMessages, index) =>
@@ -59,18 +58,15 @@ class MessageList extends Component {
                 <p className='content'>{currentMessages.content}</p>
               </div>
             )}
-          </div>
-
-          <div className='newMessages'>
-            <div>
-              <form onSubmit={this.createMessage}>
-                <input type='text' placeholder='Write your message here...' value={this.state.newMessage} onChange={this.updateCurrentMessages} />
-                <input type='submit' value='Send'/>
-              </form>
             </div>
-          </div>
-        </div>
 
+          <div className='new-message'>
+            <form onSubmit={this.createMessage}>
+              <input id='message-content' type='text' placeholder='Write your message here...' value={this.state.newMessage} onChange={this.updateCurrentMessages} />
+              <input id='send-button' type='submit' value='Send'/>
+            </form>
+          </div>
+        </section>
       );
     }
 
