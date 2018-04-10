@@ -23,7 +23,7 @@ class User extends Component {
   render() {
 
     return (
-      <section className="sign-in-out">
+      <section className="user-details">
         <p className="current-user">Current User: {this.props.activeUser === null ? 'Guest' : this.props.activeUser.displayName}</p>
         <button className="sign-in" onClick={ () => this.signIn() }>Sign In</button>
         <button className="sign-out" onClick={ () => this.signOut() }>Sign Out</button>

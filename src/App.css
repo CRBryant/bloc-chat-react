@@ -7,52 +7,138 @@
 html,
 body {
   background-color: #fff;
-  color: #555;
+  color: #222;
   font-family: 'Lato', 'Arial', sans-serif;
   font-weight: 300;
   font-size: 20px;
   overflow-x: hidden;
 }
 
-section {
-  padding: 80px 0;
+.App {
+  height: 100vh;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+.roomlist {
+  background-color: skyblue;
+  opacity: 0.5;
+  float: left;
+  height: 100vh;
+  width: 25%;
+  position: absolute;
+  padding-top: 10px;
+}
+
+.rooms h2,
+.room-form {
+  text-align: left;
+  background-color: #skyblue;
 }
 
 h1,
-h2,
-h3 {
+h2 {
+  letter-spacing: 3px;
+  line-height: 5;
   font-weight: 300;
 }
 
-h1 {
-  margin-top: 0;
-  margin-bottom: 20px;
+.roomlist li {
+  list-style: none;
+  height: 10vh;
+}
+
+.user-details {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  display: inline-block;
+  background-color: #ccc;
+  text-align: center;
+  float: right;
+}
+
+.current-user {
+  font-size: 20px;
+  font-weight: 400;
   color: #fff;
-  font-size: 220%;
-  word-spacing: 4px;
-  letter-spacing: 1px;
+  padding: 10px 20px;
+  margin: 0 10px 5px 10px;
 }
 
-h2 {
-  font-size: 180%;
-  word-spacing: 2px;
-  text-align: center;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
+.sign-in {
+  background-color: #2a68a3;
+  color: #fff;
 }
 
-ul {
-  list-style-type: none;
+.sign-in,
+.sign-out {
+  padding: 5px 5px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
-.App {
-  text-align: center;
+.sign-in:hover,
+.sign-out:active {
+  background-color: #2a68a3;
+  border: 1px solid #2a68a3;
+  color: #fff;
+}
+
+.message-list {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+    background-color: #fff;
+    height: 80vh;
+    margin: 15px;
+    opacity: 0.7;
+    text-align: left;
+}
+
+.new-message {
+  display: block;
+  background-color: #fff;
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: 400;
+  height: 80vh;
+  width: 80vw;
+  float:right;
+}
+
+.message-form {
+  position: absolute;
+  bottom: 5%;
+  height: 50px;
+  width: 80%;
+  margin-bottom: 50px;
+}
+
+.message-content {
+  height: 90%;
+  width: 90%;
+}
+
+input[type=text] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+}
+
+input[type=submit] {
+  padding: 5px 15px;
+  background: #2a68a3;
+  cursor: pointer;
+  border: 2px solid #2a68a3;
+  border-radius: 2px;
+  color: #fff;
 }
 
 .App-name {
   background: #ccc;
   margin: 0;
-  padding: 5px;
+  padding: 2px;
 }
 
 .App-logo {

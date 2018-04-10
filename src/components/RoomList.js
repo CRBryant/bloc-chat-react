@@ -42,12 +42,14 @@ class RoomList extends Component {
   render() {
     return (
       <div className='rooms'>
-        <div className='roomform'>
+        <h2>Choose a room:</h2>
+        <div className='room-form'>
           <form onSubmit={this.createRoom}>
-            <input type='text' onChange={this.updateRoomName} />
+            <input type='text' placeholder='Create a new room...' onChange={this.updateRoomName} />
             <input type='submit' value='Create Room!'/>
           </form>
         </div>
+
         <div className='roomlist'>
           <ul>
             {this.state.rooms.map( (room, index) => {
