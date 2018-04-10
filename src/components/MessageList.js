@@ -43,27 +43,33 @@ class MessageList extends Component {
       this.setState({ newMessage: newMessage });
     }
 
+    setTime(time) {
+      const format = new Date(time);
+      const newTime = String(format);
+      return newTime;
+    }
+
     render() {
       return (
-          <section className='messages'>
+          <section className='message-list'>
             <h2>{this.props.activeRoom.name}</h2>
 
-            <div>
+            <div className='new-message'>
             {this.state.messages
               .filter(message => message.roomID === this.props.activeRoom.key)
               .map((currentMessages, index) =>
-              <div key={index} className='message'>
+              <div key={index}>
                 <h3 className='username'>{currentMessages.username}</h3>
-                <span className='sentAt'>{currentMessages.sentAt}</span>
+                <span className='sentAt'>{this.setTime(currentMessages.sentAt)}</span>
                 <p className='content'>{currentMessages.content}</p>
               </div>
             )}
             </div>
 
-          <div className='new-message'>
+          <div className='message-form'>
             <form onSubmit={this.createMessage}>
-              <input id='message-content' type='text' placeholder='Write your message here...' value={this.state.newMessage} onChange={this.updateCurrentMessages} />
-              <input id='send-button' type='submit' value='Send'/>
+              <input className='message-content' type='text' placeholder='Write your message here...' value={this.state.newMessage} onChange={this.updateCurrentMessages} />
+              <input className='send-button' type='submit' value='Send'/>
             </form>
           </div>
         </section>

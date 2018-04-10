@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './roomList.css';
 
 class RoomList extends Component {
   constructor(props) {
@@ -19,6 +18,15 @@ class RoomList extends Component {
       room.key = snapshot.key;
       this.setState({ rooms: this.state.rooms.concat( room ) });
     });
+    /*
+    this.roomsRef.on('child_removed', snapshot => {
+      const room = snapshot.val();
+      room.key = snapshot.key;
+      this.setState({ rooms: this.state.rooms.filter(value) {
+        return value.key !== room.key;
+      }) });
+    });
+    */
   }
 
   createRoom(e) {
@@ -33,20 +41,21 @@ class RoomList extends Component {
 
   render() {
     return (
-      <section className='rooms'>
-        <h2>{this.props.activeRoom.name || 'Choose Room'}</h2>
-        <div>
-          <ul className='rooms-list'>
+      <div className='rooms'>
+        <div className='roomform'>
+          <form onSubmit={this.createRoom}>
+            <input type='text' onChange={this.updateRoomName} />
+            <input type='submit' value='Create Room!'/>
+          </form>
+        </div>
+        <div className='roomlist'>
+          <ul>
             {this.state.rooms.map( (room, index) => {
               return <li key={index} onClick={() => this.props.setActiveRoom(room)}>{room.name}</li>
             })}
           </ul>
         </div>
-        <form onSubmit={this.createRoom}>
-          <input type='text' id='newRoom' onChange={this.updateRoomName} />
-          <input type='submit' value='Create Room!'/>
-        </form>
-    </section>
+    </div>
     );
   }
 }

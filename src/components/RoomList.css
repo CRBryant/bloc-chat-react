@@ -8,10 +8,41 @@
   width: 20vw;
 }
 
-.rooms-list li {
+roomform {
+  width: 60%;
+  margin: 0 auto;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+input[type=submit] {
+  background-color: #e67e22;
+  border: 1px solid #e67e22;
+  color: #fff;
+  margin-right: 15px;
+  display: inline-block;
+  padding: 10px 30px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 200px;
+}
+
+input[type=submit]:hover,
+input[type=submit]:active {
+  background-color: #cf6d17;
+}
+
+.roomlist {
   list-style: none;
-  margin-left: 0;
+  float: left;
+  text-align: center;
   font-size: 18px;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Helvetica', sans-serif;
   font-weight:400;
+  padding-top: 10px;
+  margin: 0 0 10px 10px;
 }

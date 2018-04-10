@@ -1,11 +1,37 @@
+#current-user {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 0 10px 5px 10px;
+}
+
 .sign-in-out {
   display: inline-block;
   background-color: #ccc;
   text-align: center;
   font-size: 18px;
-  font-family: sans-serif;
+  font-family: 'Lato','Arial',sans-serif;
   font-weight: 400;
-  height: 20vh;
-  width: 20vw;
   float: left;
+}
+
+.sign-in {
+  background-color: #2a68a3;
+  color: #fff;
+}
+
+.sign-in,
+.sign-out {
+  padding: 5px 5px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.sign-in:hover,
+.sign-out:active {
+  background-color: #2a68a3;
+  border: 1px solid #2a68a3;
+  color: #fff;
 }
