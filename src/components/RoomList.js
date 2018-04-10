@@ -18,6 +18,15 @@ class RoomList extends Component {
       room.key = snapshot.key;
       this.setState({ rooms: this.state.rooms.concat( room ) });
     });
+    /*
+    this.roomsRef.on('child_removed', snapshot => {
+      const room = snapshot.val();
+      room.key = snapshot.key;
+      this.setState({ rooms: this.state.rooms.filter(value) {
+        return value.key !== room.key;
+      }) });
+    });
+    */
   }
 
   createRoom(e) {
@@ -32,14 +41,16 @@ class RoomList extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className='rooms'>
+        <h2>Choose a room:</h2>
+        <div className='room-form'>
           <form onSubmit={this.createRoom}>
-            <input type='text' onChange={this.updateRoomName} />
+            <input type='text' placeholder='Create a new room...' onChange={this.updateRoomName} />
             <input type='submit' value='Create Room!'/>
           </form>
         </div>
-        <div className='room-list'>
+
+        <div className='roomlist'>
           <ul>
             {this.state.rooms.map( (room, index) => {
               return <li key={index} onClick={() => this.props.setActiveRoom(room)}>{room.name}</li>

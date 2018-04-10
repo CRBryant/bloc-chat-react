@@ -40,20 +40,25 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <section className="App">
+        <h1 className='App-name'>Bloc Chat</h1>
+
         <RoomList
           firebase={firebase}
           setActiveRoom={this.setActiveRoom}
           activeRoom={this.state.activeRoom} />
-        <MessageList
-          firebase={firebase}
-          activeRoom={this.state.activeRoom}
-          activeUser={this.state.activeUser} />
+
         <User
           firebase={firebase}
           setUser={this.setUser}
           activeUser={this.state.activeUser} />
-      </div>
+
+        <MessageList
+          firebase={firebase}
+          activeRoom={this.state.activeRoom}
+          activeUser={this.state.activeUser} />
+
+      </section>
     );
   }
 }
